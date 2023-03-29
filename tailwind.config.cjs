@@ -18,7 +18,7 @@ module.exports = {
       backgroundImage: {
         /* BACKGROUND-COVER */
         contactBg:
-          "linear-gradient(to right,rgba(0,0,0,.7),rgba(0,0,0,.5)),url(./src/assets/sunset-bg.jpg)",
+          "linear-gradient(to right,rgba(0,0,0,.7),rgba(0,0,0,.5)),url(../src/assets/sunset-bg.jpg)",
 
         /* GRADIENT-COLOR */
         gradientColor_1: "linear-gradient(to right, #2cccff 0%, #20e3b2 100%)",
