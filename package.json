@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite",
     "predeploy": "vite build",
-    "deploy": "gh-pages -d dist",
+    "deploy": "gh-pages -d build",
     "build": "vite build",
     "preview": "vite preview"
   },
@@ -17,6 +17,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
     "react-paginate": "^8.1.4",
+    "react-router": "^6.9.0",
     "react-router-dom": "^6.9.0",
     "sass": "^1.60.0",
     "swiper": "^9.1.1",
