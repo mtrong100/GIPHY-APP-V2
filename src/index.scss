@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply font-poppins text-white bg-primary;
+  }
+  .page-container {
+    @apply max-w-[1300px] px-[15px] mx-auto w-full;
+  }
+  .img-cover {
+    @apply w-full h-full object-cover rounded-md;
+  }
+  .btnStyles {
+    @apply px-6 mt-3 py-3 font-medium capitalize bg-gradientColor_4 rounded-md transition-all duration-300;
+  }
+  .loadingCircle {
+    @apply w-[100px] h-[100px] animate-spin rounded-full border-t-[10px] border-t-transparent border-[10px] border-solid border-pinkColor;
+  }
+  @layer components {
+    .btn-shinny-1 {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      user-select: none;
+      &:hover::before {
+        left: auto;
+        right: 0;
+        width: 100%;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: auto;
+        top: 0;
+        height: 100%;
+        width: 0;
+        @apply bg-gradientColor_6;
+        opacity: 0.8;
+        z-index: -1;
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+    }
+    .links {
+      font-weight: 600;
+      position: relative;
+      transition: all 0.3s linear;
+      &:hover {
+        @apply bg-gradientColor_1;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        right: 0;
+        width: 0;
+        height: 3px;
+        transition: all 0.5s linear;
+        @apply bg-greenColor;
+      }
+      &:hover::before {
+        width: 100%;
+      }
+    }
+  }
+}
+
+/* ============== GRADIENT-COLOR ================ */
+.gradient-1 {
+  @apply bg-gradientColor_1;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.gradient-2 {
+  @apply bg-gradientColor_2;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.gradient-3 {
+  @apply bg-gradientColor_3;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.gradient-9 {
+  @apply bg-gradientColor_9;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =========== BORDER-GRADIENT FOR BANNER ============== */
+
+.boxed {
+  width: 620px;
+  height: 400px;
+  position: relative;
+  background-clip: padding-box;
+  border: 10px solid transparent;
+  background-color: #191a28;
+  border-radius: 6px;
+}
+.boxed:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  margin: -5px;
+  @apply bg-gradientColor_4;
+  border-radius: inherit;
+}
+
+/* =============== LOADING-SKELETON =================== */
+.skeleton {
+  background-color: #eee;
+  background-image: linear-gradient(
+    110deg,
+    #ececec 8%,
+    #f5f5f5 18%,
+    #ececec 33%
+  );
+  background-size: 200% 100%;
+  animation: 1.5s shine linear infinite;
+}
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
+}
