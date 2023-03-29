@@ -1,5 +1,6 @@
 {
   "name": "gif-app",
+  "homepage": "http://mtrong100.github.io/Giphy-app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
