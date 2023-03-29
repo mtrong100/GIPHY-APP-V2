@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Router } from "react-router-dom";
 import "./App.scss";
 import "swiper/css";
 import Layout from "./components/layout/Layout";
