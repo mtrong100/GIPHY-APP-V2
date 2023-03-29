@@ -32,7 +32,7 @@ const Footer = () => {
         </div>
 
         {/* footer-links */}
-        <div className="flex text-center md:text-start flex-wrap gap-10 mt-10 md:gap-5">
+        <div className="flex text-start flex-wrap gap-16 mt-10 md:gap-5">
           {details.map(({ title, links, id }) => {
             return (
               <div className="flex flex-col flex-1" key={id}>

@@ -77,6 +77,7 @@
 /* ================= PAGINATION-STYLE ================= */
 .pagination {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 10px;
@@ -93,6 +94,10 @@
       color: white;
       cursor: pointer;
     }
+  }
+  @media screen and (max-width: 480px) {
+    font-size: 12px;
+    gap: 5px;
   }
 }
 

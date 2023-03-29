@@ -85,11 +85,11 @@ const SearchPage = () => {
         <div className="my-10">
           <ReactPaginate
             breakLabel="..."
-            nextLabel="next >"
+            nextLabel="next>"
             onPageChange={handlePageClick}
             pageRangeDisplayed={5}
             pageCount={pageCount}
-            previousLabel="< previous"
+            previousLabel="<prev"
             renderOnZeroPageCount={null}
             className="pagination"
           />
