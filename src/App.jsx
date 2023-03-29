@@ -19,7 +19,7 @@ function App() {
           </div>
         }
       >
-        <Routes>
+        <Routes basename="/Giphy-app/">
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
             <Route path="search" element={<SearchPage />} />
