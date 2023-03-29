@@ -11,9 +11,9 @@ const ContactPage = () => {
       </div>
 
       {/* content */}
-      <div className="page-container my-32">
+      <div className="page-container my-20 md:my-32">
         {/* booking section */}
-        <div className="mt-10 grid md:grid-cols-2 gap-3 md:gap-5">
+        <div className="mt-10 grid md:grid-cols-2 gap-5">
           <div className="flex flex-col gap-5">
             <h2 className="gradient-2 text-4xl uppercase font-bold">
               Subscribe us now
@@ -29,7 +29,7 @@ const ContactPage = () => {
               placeholder="Enter your name..."
             />
             <textarea
-              className="resize-none w-full p-3 placeholder:text-white bg-gradientColor_9 outline-none mt-5  border-primary rounded-md min-h-[150px]"
+              className="resize-none w-full p-3 placeholder:text-white bg-gradientColor_9 outline-none rounded-md h-full"
               placeholder="Write something..."
             ></textarea>
           </div>

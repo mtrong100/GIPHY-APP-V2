@@ -74,6 +74,28 @@
   }
 }
 
+/* ================= PAGINATION-STYLE ================= */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  .selected {
+    @apply bg-gradientColor_4;
+  }
+  li {
+    padding: 10px 20px;
+    border-radius: 5px;
+    &:hover {
+      @apply bg-gradientColor_4;
+      color: white;
+      cursor: pointer;
+    }
+  }
+}
+
 /* ============== GRADIENT-COLOR ================ */
 .gradient-1 {
   @apply bg-gradientColor_1;

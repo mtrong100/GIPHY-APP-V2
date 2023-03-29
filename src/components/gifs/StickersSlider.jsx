@@ -17,11 +17,10 @@ import { fetcher, GIPHY_API } from "../../config";
 const itemLoading = 8;
 
 const StickersSlider = () => {
-  const { data, error } = useSWR(GIPHY_API.getStickers("trending"), fetcher);
+  const { data, error } = useSWR(GIPHY_API.getStickers(), fetcher);
   /* Set loading when there are no data or error */
   const loading = !data && !error;
   const stickers = data?.data || [];
-  console.log(stickers);
 
   /* Gif Slider component */
   return (

@@ -2,14 +2,18 @@ import React, { useEffect, useState } from "react";
 import useSWR from "swr";
 import GifCards, { GifCardsLoading } from "../components/gifs/GifCards";
 import { fetcher, GIPHY_API } from "../config";
-import Pagination from "react-paginate";
 import useDebounce from "../hooks/useDebounce";
 import { v4 } from "uuid";
+import ReactPaginate from "react-paginate";
 
-const itemPerPage = 50;
+const itemsPerPage = 25;
 const SearchPage = () => {
+  const [pageCount, setPageCount] = useState(0);
+  const [itemOffset, setItemOffset] = useState(0);
+  const [nextPage, setNextPage] = useState(0);
+
   const [filter, setFilter] = useState("");
-  const [url, setUrl] = useState(GIPHY_API.getGifs("trending"));
+  const [url, setUrl] = useState(GIPHY_API.getGifs(nextPage));
   const filterDebounce = useDebounce(filter, 500);
 
   const handleFilterChange = (e) => {
@@ -19,17 +23,30 @@ const SearchPage = () => {
   /* Check params to switch API fetching */
   useEffect(() => {
     if (filterDebounce) {
-      setUrl(GIPHY_API.getSearchGif(filterDebounce));
+      setUrl(GIPHY_API.getSearchGif(filterDebounce, nextPage));
     } else {
-      setUrl(GIPHY_API.getGifs("trending"));
+      setUrl(GIPHY_API.getGifs(nextPage));
     }
-  }, [filterDebounce]);
+  }, [filterDebounce, nextPage]);
 
   const { data, error } = useSWR(url, fetcher);
-  console.log(data);
   /* Set loading when there are no data or error */
   const loading = !data && !error;
   const gifs = data?.data || [];
+
+  /* react-pagination */
+  const pagination = data?.pagination || [];
+  useEffect(() => {
+    if (!pagination || !pagination.total_count) return;
+    setPageCount(Math.ceil(pagination.total_count / itemsPerPage));
+  }, [pagination, itemOffset]);
+  console.log(pagination);
+
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % pagination.total_count;
+    setItemOffset(newOffset);
+    setNextPage(event.selected + 25);
+  };
 
   return (
     <section className="pt-24">
@@ -47,11 +64,12 @@ const SearchPage = () => {
           </span>
         </div>
 
-        <div className="mt-10 mb-32 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+        {/* data results */}
+        <div className="mt-10 mb-20 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
           {/* skeleton loading */}
           {loading && (
             <>
-              {new Array(itemPerPage).fill(0).map(() => (
+              {new Array(itemsPerPage).fill(0).map(() => (
                 <GifCardsLoading key={v4()}></GifCardsLoading>
               ))}
             </>
@@ -61,6 +79,20 @@ const SearchPage = () => {
           {!loading &&
             gifs.length > 0 &&
             gifs.map((item) => <GifCards key={item.id} item={item}></GifCards>)}
+        </div>
+
+        {/* react-pagination */}
+        <div className="my-10">
+          <ReactPaginate
+            breakLabel="..."
+            nextLabel="next >"
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={5}
+            pageCount={pageCount}
+            previousLabel="< previous"
+            renderOnZeroPageCount={null}
+            className="pagination"
+          />
         </div>
       </div>
     </section>

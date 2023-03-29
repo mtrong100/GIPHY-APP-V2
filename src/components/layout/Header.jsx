@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/giphy-icon.png";
 import { nav } from "../../data";
@@ -7,19 +7,16 @@ import { HiMenuAlt3, HiX } from "react-icons/hi";
 const Header = () => {
   const [toggle, setToggle] = useState(false);
   const [top, setTop] = useState(false);
-  const headerRef = useRef(null);
 
   /* Change background header when scroll */
   useEffect(() => {
-    const headerHeight = headerRef.current.offsetHeight;
     window.addEventListener("scroll", () => {
-      setTop(window.scrollY > headerHeight);
+      setTop(window.scrollY > 40);
     });
   }, []);
 
   return (
     <header
-      ref={headerRef}
       className={`${
         top ? "bg-gradientColor_8" : ""
       } py-3 md:py-5 fixed top-0 left-0 right-0 z-50`}
