@@ -4,8 +4,26 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/GIPHY-APP-V2/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-    <script type="module" crossorigin src="/GIPHY-APP-V2/assets/index-2ff5de14.js"></script>
+    <script type="text/javascript">
+      (function (l) {
+        if (l.search[1] === "/") {
+          var decoded = l.search
+            .slice(1)
+            .split("&")
+            .map(function (s) {
+              return s.replace(/~and~/g, "&");
+            })
+            .join("?");
+          window.history.replaceState(
+            null,
+            null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      })(window.location);
+    </script>
+    <title>GIPHY-APP-V2</title>
+    <script type="module" crossorigin src="/GIPHY-APP-V2/assets/index-cf3d90a5.js"></script>
     <link rel="stylesheet" href="/GIPHY-APP-V2/assets/index-9c27106a.css">
   </head>
   <body>
