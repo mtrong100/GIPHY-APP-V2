@@ -22,9 +22,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
-            <Route path="search" element={<SearchPage />} />
-            <Route path="sticker" element={<StickerPage />} />
-            <Route path="contact" element={<ContactPage />} />
+            <Route path="/search" element={<SearchPage />} />
+            <Route path="/sticker" element={<StickerPage />} />
+            <Route path="/contact" element={<ContactPage />} />
             {/* <Route path="*" element={<NoPage />} /> */}
           </Route>
         </Routes>
