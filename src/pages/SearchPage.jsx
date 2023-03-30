@@ -26,6 +26,7 @@ const SearchPage = () => {
       setUrl(GIPHY_API.getSearchGif(filterDebounce, nextPage));
     } else {
       setUrl(GIPHY_API.getGifs(nextPage));
+      console.log(nextPage);
     }
   }, [filterDebounce, nextPage]);
 
@@ -36,16 +37,16 @@ const SearchPage = () => {
 
   /* react-pagination */
   const pagination = data?.pagination || [];
+  console.log(pagination);
   useEffect(() => {
     if (!pagination || !pagination.total_count) return;
     setPageCount(Math.ceil(pagination.total_count / itemsPerPage));
   }, [pagination, itemOffset]);
-  console.log(pagination);
 
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % pagination.total_count;
     setItemOffset(newOffset);
-    setNextPage(event.selected + 25);
+    setNextPage((prev) => prev + 25);
   };
 
   return (

@@ -44,7 +44,7 @@ const StickerPage = () => {
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % pagination.total_count;
     setItemOffset(newOffset);
-    setNextPage(event.selected + 25);
+    setNextPage((prev) => prev + 25);
   };
 
   return (
