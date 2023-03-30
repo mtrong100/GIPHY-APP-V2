@@ -1,4 +1,4 @@
-# GIPHY-APP-V2 (React + Tailwind CSS)
+# GIPHY-APP-V2 (React Vite JS + Tailwind CSS)
 ## Library: Swiper JS, React-pagination, React-router-v6, uuid, SWR
 ## API from GIPHY
 ## lINK: https://mtrong100.github.io/GIPHY-APP-V2/
