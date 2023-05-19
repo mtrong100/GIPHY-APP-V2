@@ -28,7 +28,7 @@ const HomePage = () => {
         <h1 className="text-2xl md:text-4xl gradient-1 uppercase font-semibold border-b-4 border-blueColor w-fit">
           MEMES gifs
         </h1>
-        <GifSlider query="cheems"></GifSlider>
+        <GifSlider query="breaking bad"></GifSlider>
       </section>
 
       {/* ANIME GIFS */}
